@@ -1,0 +1,1154 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent Control Center · Cấu hình global</title>
+<style>
+  :root {
+    --paper: #e7e9e2;
+    --surface: #f6f7f2;
+    --surface-2: #eef0e9;
+    --ink: #17211d;
+    --muted: #59665f;
+    --line: #c6cbc2;
+    --line-strong: #9aa39a;
+    --teal: #12544a;
+    --teal-soft: #d9e5df;
+    --blue: #3d5f87;
+    --amber: #a65a1f;
+    --grey: #6f7b74;
+    --display: "Nimbus Sans Narrow", "Liberation Sans Narrow", "DejaVu Sans", sans-serif;
+    --body: "Noto Sans", "Liberation Sans", "DejaVu Sans", sans-serif;
+    --mono: "DejaVu Sans Mono", "Noto Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  code, .mono { font-family: var(--mono); font-size: .86em; }
+  :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+  [hidden] { display: none !important; }
+
+  .top {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--paper) 94%, transparent);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(8px);
+  }
+
+  .top-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+
+  .mark {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    display: grid;
+    place-items: center;
+    background: var(--teal);
+    color: #f3f5ef;
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: .02em;
+  }
+
+  .brand-name {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: .01em;
+  }
+
+  .brand-sub {
+    margin: 2px 0 0;
+    font-size: 11.5px;
+    color: var(--muted);
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+
+  .tabs button {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--body);
+    font-size: 14px;
+    padding: 8px 12px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .tabs button:hover { color: var(--ink); }
+  .tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--teal); }
+
+  .tabs .n {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 56px 28px 40px;
+  }
+
+  main > section { scroll-margin-top: 84px; }
+
+  .meta-line {
+    margin: 0 0 18px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+
+  h1 {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: clamp(46px, 7.4vw, 84px);
+    line-height: .94;
+    letter-spacing: -.005em;
+    max-width: 12ch;
+  }
+
+  .lede {
+    margin: 22px 0 0;
+    max-width: 62ch;
+    font-size: 16.5px;
+    color: #2f3b35;
+  }
+
+  .lede strong { font-weight: 700; }
+  .lede code { background: var(--surface-2); padding: 2px 5px; }
+
+  .stats {
+    margin-top: 42px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stat { padding: 16px 18px 18px 0; }
+  .stat + .stat { padding-left: 22px; border-left: 1px solid var(--line); }
+
+  .stat b {
+    display: block;
+    font-family: var(--display);
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -.01em;
+  }
+
+  .stat > span { display: block; margin-top: 7px; font-size: 12.5px; color: var(--muted); }
+  .stat > small { display: block; margin-top: 3px; font-size: 11.5px; color: var(--grey); }
+
+  .grid-2 {
+    margin-top: 42px;
+    display: grid;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 28px;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 24px 26px 26px;
+  }
+
+  .panel h2, .block h2 {
+    margin: 0 0 4px;
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: .005em;
+  }
+
+  .panel .sub, .block .sub { margin: 0 0 20px; font-size: 12.5px; color: var(--muted); }
+
+  .bar {
+    display: flex;
+    gap: 2px;
+    height: 14px;
+    margin: 6px 0 18px;
+    background: var(--paper);
+  }
+
+  .bar span { display: block; height: 100%; min-width: 2px; }
+
+  .legend { list-style: none; margin: 0; padding: 0; }
+
+  .legend li {
+    display: grid;
+    grid-template-columns: 10px 1fr auto;
+    gap: 10px;
+    align-items: baseline;
+    padding: 9px 0;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+  }
+
+  .dot { width: 8px; height: 8px; display: inline-block; flex: 0 0 8px; }
+  .dot.teal { background: var(--teal); }
+  .dot.blue { background: var(--blue); }
+  .dot.amber { background: var(--amber); }
+  .dot.grey { background: var(--grey); }
+
+  .legend .path {
+    grid-column: 2 / -1;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+    margin-top: -4px;
+  }
+
+  .legend .count { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+  .checks { list-style: none; margin: 0; padding: 0; }
+  .checks li {
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .checks li:first-child { border-top: 0; padding-top: 2px; }
+  .checks .val { font-family: var(--mono); font-size: 12px; color: var(--teal); white-space: nowrap; }
+  .checks .val.warn { color: var(--amber); }
+
+  .change-panel {
+    margin-top: 28px;
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 32px;
+  }
+
+  .change-panel ul { margin: 10px 0 0; padding-left: 18px; }
+  .change-panel li { margin: 8px 0; font-size: 13.5px; }
+  .change-panel li code { color: var(--teal); }
+  .note { margin: 16px 0 0; font-size: 12.5px; color: var(--muted); max-width: 52ch; }
+
+  .block { margin-top: 56px; }
+
+  .block-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+  }
+
+  .block-head p { margin: 0; font-size: 12.5px; color: var(--muted); }
+
+  .toolbar { display: grid; gap: 12px; margin-bottom: 18px; }
+
+  .search-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+  .search {
+    flex: 1 1 260px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 9px 12px;
+  }
+
+  .search label { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+
+  .search input {
+    flex: 1;
+    border: 0;
+    background: transparent;
+    font-family: var(--body);
+    font-size: 14px;
+    color: var(--ink);
+    padding: 2px 0;
+    min-width: 0;
+  }
+  .search input:focus { outline: none; }
+  .search:focus-within { border-color: var(--teal); box-shadow: 0 0 0 1px var(--teal); }
+
+  .counter { font-family: var(--mono); font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+
+  .chips { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+  .chips .label {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-right: 4px;
+    min-width: 54px;
+  }
+
+  .chip {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 12.5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .chip:hover { border-color: var(--line-strong); background: var(--surface); }
+  .chip[aria-pressed="true"] { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .chip .n { font-family: var(--mono); font-size: 10.5px; opacity: .72; }
+
+  .legend-note { font-size: 11.5px; color: var(--muted); margin: -4px 0 0; }
+  .legend-note .dot { margin: 0 4px 0 10px; vertical-align: 1px; }
+
+  .skill-list { border-top: 1px solid var(--line-strong); }
+
+  .skill { border-bottom: 1px solid var(--line); }
+
+  .skill-head {
+    appearance: none;
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    text-align: left;
+    display: grid;
+    grid-template-columns: minmax(150px, 215px) 1fr auto 22px;
+    gap: 18px;
+    align-items: start;
+    padding: 17px 4px;
+    cursor: pointer;
+    font-family: var(--body);
+  }
+
+  .skill-head:hover { background: color-mix(in srgb, var(--surface) 75%, transparent); }
+  .skill-head[aria-expanded="true"] { background: var(--surface); }
+
+  .skill-name {
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: .005em;
+    overflow-wrap: anywhere;
+  }
+
+  .skill-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .skill-head[aria-expanded="true"] .skill-desc { -webkit-line-clamp: unset; display: block; }
+
+  .skill-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    font-size: 11.5px;
+    color: var(--muted);
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .skill-meta .tag { color: var(--ink); }
+  .skill-meta .src { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
+
+  .chev {
+    font-family: var(--mono);
+    font-size: 16px;
+    color: var(--muted);
+    text-align: right;
+    line-height: 1.3;
+  }
+
+  .skill-body { background: var(--surface); padding: 4px 22px 22px 237px; }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 28px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+
+  .detail-grid div.wide { grid-column: 1 / -1; }
+  .detail-grid dt {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 3px;
+  }
+  .detail-grid dd {
+    margin: 0;
+    font-size: 12.5px;
+    overflow-wrap: anywhere;
+  }
+  .detail-grid dd.mono { font-family: var(--mono); font-size: 11.5px; line-height: 1.45; }
+
+  .empty { padding: 36px 4px; color: var(--muted); font-size: 14px; }
+
+  .step-list { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--line-strong); }
+
+  .step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 54px 1fr auto;
+    gap: 18px;
+    padding: 0 0 30px 22px;
+  }
+
+  .step::before {
+    content: "";
+    position: absolute;
+    left: -4.5px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--teal);
+    border: 1px solid var(--paper);
+  }
+
+  .step .num {
+    font-family: var(--display);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--line-strong);
+  }
+
+  .step .cmd {
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--teal);
+  }
+
+  .step .desc { margin: 4px 0 0; font-size: 13.5px; color: #2f3b35; max-width: 62ch; }
+  .step .where { margin: 6px 0 0; font-family: var(--mono); font-size: 10.5px; color: var(--muted); overflow-wrap: anywhere; }
+  .step .agent { font-size: 11.5px; color: var(--muted); white-space: nowrap; padding-top: 4px; }
+
+  .builtin { margin-top: 34px; }
+
+  details {
+    margin-top: 28px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+  }
+
+  details > summary {
+    cursor: pointer;
+    padding: 14px 20px;
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+
+  details > summary:hover { background: var(--surface-2); }
+
+  details .details-body { padding: 4px 26px 26px; border-top: 1px solid var(--line); }
+
+  .prose { max-width: 72ch; }
+  .prose h1 { font-size: 34px; line-height: 1.1; max-width: none; margin: 18px 0 14px; }
+  .prose h2 { font-family: var(--display); font-size: 22px; font-weight: 700; margin: 30px 0 10px; letter-spacing: .005em; }
+  .prose h3 { font-family: var(--body); font-size: 15px; font-weight: 700; margin: 22px 0 8px; }
+  .prose p { margin: 10px 0; }
+  .prose ul, .prose ol { margin: 10px 0; padding-left: 20px; }
+  .prose li { margin: 5px 0; }
+  .prose code { background: var(--surface-2); padding: 1px 5px; }
+  .prose pre { background: var(--surface-2); border: 1px solid var(--line); padding: 14px 16px; overflow-x: auto; }
+  .prose pre code { background: none; padding: 0; }
+  .prose blockquote { margin: 16px 0; padding: 2px 0 2px 16px; border-left: 2px solid var(--teal); color: var(--muted); }
+  .prose hr { border: 0; border-top: 1px solid var(--line); margin: 26px 0; }
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+  .prose table, .config-table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+  .prose th, .prose td, .config-table th, .config-table td {
+    border: 1px solid var(--line);
+    padding: 7px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .prose th, .config-table th { background: var(--surface-2); font-weight: 700; }
+  .config-table td.mono { font-family: var(--mono); font-size: 10.5px; overflow-wrap: anywhere; }
+
+  .rules-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  .aside { position: sticky; top: 82px; }
+  .aside .panel { padding: 20px 22px; }
+  .aside h3 { margin: 0 0 10px; font-family: var(--display); font-size: 19px; }
+  .facts { list-style: none; margin: 0 0 18px; padding: 0; font-size: 12.5px; }
+  .facts li { display: flex; justify-content: space-between; gap: 14px; padding: 6px 0; border-top: 1px solid var(--line); }
+  .facts li:first-child { border-top: 0; }
+  .facts .k { color: var(--muted); }
+  .facts .v { font-family: var(--mono); font-size: 11px; text-align: right; overflow-wrap: anywhere; }
+  .config-table { margin-top: 4px; }
+
+  footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 26px 28px 46px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 11.5px;
+    color: var(--muted);
+  }
+  footer code { font-size: 10.5px; }
+
+  @media (max-width: 900px) {
+    .grid-2, .change-panel, .rules-grid { grid-template-columns: 1fr; }
+    .aside { position: static; }
+    .skill-body { padding-left: 22px; }
+  }
+
+  @media (max-width: 760px) {
+    .top-inner { flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px 18px; }
+    .tabs { width: 100%; overflow-x: auto; flex-wrap: nowrap; padding-bottom: 2px; }
+    .tabs button { white-space: nowrap; }
+    main { padding: 36px 18px 32px; }
+    h1 { font-size: clamp(42px, 13vw, 60px); }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(3) { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+    .stat:nth-child(4) { border-top: 1px solid var(--line); }
+    .stat b { font-size: 34px; }
+    .panel { padding: 20px 18px 22px; }
+    .skill-head { grid-template-columns: 1fr 22px; gap: 8px 14px; padding: 15px 2px; }
+    .skill-desc { grid-column: 1 / 2; }
+    .skill-meta { grid-column: 1 / 2; flex-direction: row; align-items: baseline; gap: 10px; text-align: left; }
+    .chev { grid-column: 2; grid-row: 1; }
+    .skill-body { padding: 0 14px 20px; }
+    .detail-grid { grid-template-columns: 1fr; }
+    .step { grid-template-columns: 34px 1fr; gap: 12px; padding-left: 16px; }
+    .step .agent { grid-column: 2; padding-top: 0; }
+    .step .num { font-size: 24px; }
+    .chips .label { min-width: 100%; margin-bottom: 2px; }
+    .search { flex-basis: 100%; }
+    footer { padding: 22px 18px 36px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <div class="brand">
+      <span class="mark" aria-hidden="true">AG</span>
+      <div>
+        <p class="brand-name">Agent Control Center</p>
+        <p class="brand-sub">Cấu hình dùng chung cho mọi agent · ~/.config/opencode</p>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="Các mục">
+      <button type="button" data-tab="overview" aria-selected="true">Tổng quan</button>
+      <button type="button" data-tab="skills" aria-selected="false">Skills <span class="n" data-count="globalSkills">46</span></button>
+      <button type="button" data-tab="workflow" aria-selected="false">Workflow <span class="n" data-count="commands">4</span></button>
+      <button type="button" data-tab="rules" aria-selected="false">Quy tắc</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="overview">
+    <p class="meta-line" id="meta-line">Đang đọc dữ liệu…</p>
+    <h1>Một bộ não,<br>mọi agent.</h1>
+    <p class="lede">
+      Đang áp dụng cho mọi phiên: <strong data-count="globalSkills">46</strong> skill toàn cục,
+      <strong data-count="commands">4</strong> lệnh workflow và một bộ quy tắc trong
+      <code>~/.config/opencode</code>. Trang này chỉ để xem — không sửa gì ở đây.
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <b data-count="globalSkills">46</b>
+        <span>skill toàn cục</span>
+        <small><span data-count="builtinSkills">3</span> built-in + <span data-count="syncedSkills">4</span> synced</small>
+      </div>
+      <div class="stat">
+        <b data-count="commands">4</b>
+        <span>lệnh workflow</span>
+        <small>plan → check → review → commit</small>
+      </div>
+      <div class="stat">
+        <b>1</b>
+        <span>bộ quy tắc</span>
+        <small>AGENTS.md</small>
+      </div>
+      <div class="stat">
+        <b data-count="agents">0</b>
+        <span>agent riêng</span>
+        <small>chỉ dùng agent mặc định</small>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="panel">
+        <h2>Skill đến từ đâu</h2>
+        <p class="sub"><span data-count="skills">53</span> skill đang đăng ký, tính cả built-in và bản sync.</p>
+        <div class="bar" id="composition-bar" role="img" aria-label="Tỷ lệ skill theo nguồn"></div>
+        <ul class="legend" id="source-legend"></ul>
+      </div>
+
+      <div class="panel">
+        <h2>Kiểm tra nhanh</h2>
+        <p class="sub">Tình trạng bộ cấu hình tại lần build gần nhất.</p>
+        <ul class="checks" id="checks"></ul>
+      </div>
+    </div>
+
+    <div class="panel change-panel">
+      <div>
+        <h2>Muốn thay đổi gì?</h2>
+        <p class="sub">Không cần sửa file. Nhắn agent theo mẫu, agent sửa cấu hình rồi build lại trang.</p>
+        <p class="note">
+          Trang chỉ đọc. Nguồn sự thật vẫn là các file trong <code>~/.config/opencode</code>;
+          sau khi sửa, chạy <code>python3 build.py</code> để cập nhật số liệu.
+        </p>
+      </div>
+      <div>
+        <ul>
+          <li>“Thêm skill <code>&lt;tên&gt;</code> vào global, lấy từ repo <code>&lt;đường-dẫn&gt;</code>.”</li>
+          <li>“Sửa mô tả của skill <code>playwright</code> cho ngắn hơn.”</li>
+          <li>“Đổi lệnh <code>/plan</code>: luôn đọc AGENTS.md của dự án trước.”</li>
+          <li>“Gỡ skill không dùng, rồi chạy lại <code>link-skills.sh</code>.”</li>
+          <li>“Thêm quy tắc vào AGENTS.md về cách viết commit.”</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" hidden>
+    <div class="block-head">
+      <div>
+        <h2>Skills</h2>
+        <p id="skills-sub">Toàn bộ skill đang được OpenCode nhận.</p>
+      </div>
+      <p class="counter" id="skills-counter">0 skill</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-row">
+        <div class="search">
+          <label for="q">Tìm</label>
+          <input id="q" type="search" placeholder="Tên, mô tả hoặc nguồn…" autocomplete="off">
+        </div>
+      </div>
+      <div class="chips" id="scope-chips">
+        <span class="label">Phạm vi</span>
+      </div>
+      <div class="chips" id="domain-chips">
+        <span class="label">Nhóm</span>
+      </div>
+      <p class="legend-note">
+        Chấm màu:<span class="dot teal"></span>symlink global
+        <span class="dot amber"></span>bản copy
+        <span class="dot blue"></span>built-in
+        <span class="dot grey"></span>Claude synced
+      </p>
+    </div>
+
+    <div class="skill-list" id="skill-list"></div>
+  </section>
+
+  <section id="workflow" hidden>
+    <div class="block-head">
+      <div>
+        <h2>Workflow</h2>
+        <p>Chuỗi lệnh gợi ý cho một task, kèm agent phụ trách.</p>
+      </div>
+      <p class="counter" id="workflow-counter"></p>
+    </div>
+
+    <ol class="step-list" id="step-list"></ol>
+
+    <div class="builtin">
+      <div class="block-head">
+        <div>
+          <h2>Lệnh built-in</h2>
+          <p>Có sẵn trong OpenCode, không nằm trong thư mục commands.</p>
+        </div>
+      </div>
+      <ul class="checks" id="builtin-commands"></ul>
+    </div>
+
+    <details>
+      <summary>Toàn văn quy trình trong README-workflow.md</summary>
+      <div class="details-body prose" id="workflow-doc"></div>
+    </details>
+  </section>
+
+  <section id="rules" hidden>
+    <div class="block-head">
+      <div>
+        <h2>Quy tắc toàn cục</h2>
+        <p>AGENTS.md — áp dụng cho mọi dự án, trừ khi dự án có quy tắc riêng.</p>
+      </div>
+      <p class="counter" id="rules-counter"></p>
+    </div>
+
+    <div class="rules-grid">
+      <article class="prose" id="rules-doc"></article>
+      <aside class="aside">
+        <div class="panel">
+          <h3>Cấu hình</h3>
+          <ul class="facts" id="config-facts"></ul>
+          <h3 style="margin-top:18px">Lệnh cần hỏi trước</h3>
+          <div class="table-wrap">
+            <table class="config-table">
+              <thead><tr><th>Lệnh</th><th>Hiệu lực</th></tr></thead>
+              <tbody id="permission-rows"></tbody>
+            </table>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <details>
+      <summary>README-skills.md — nguồn skill và cách đồng bộ</summary>
+      <div class="details-body prose" id="sources-doc"></div>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <span>Read-only · dữ liệu sinh từ <code>~/.config/opencode</code></span>
+  <span>Cập nhật <span id="built-at">—</span> · <code>python3 build.py</code></span>
+</footer>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  const data = window.AGENT_DATA;
+  if (!data) {
+    document.body.innerHTML = "<p style='padding:40px;font-family:sans-serif'>Thiếu data.js. Chạy <code>python3 build.py</code> trước.</p>";
+    return;
+  }
+
+  const $ = (sel, root) => (root || document).querySelector(sel);
+  const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+  const esc = (value) => String(value == null ? "" : value)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+
+  const KIND = {
+    symlink: { label: "Symlink", dot: "teal" },
+    copy: { label: "Bản copy đã vá", dot: "amber" },
+    builtin: { label: "OpenCode built-in", dot: "blue" },
+    synced: { label: "Claude synced", dot: "grey" }
+  };
+  const SCOPE_LABEL = { global: "Toàn cục", builtin: "Built-in", synced: "Claude synced" };
+  const WORKFLOW_ORDER = ["plan", "check", "review", "commit"];
+  const SEGMENT_COLORS = ["#12544a", "#3d5f87", "#a65a1f", "#6f7b74", "#8b9a7a", "#7d6a8a", "#4f7a72"];
+
+  const totals = data.totals;
+  const skills = data.skills || [];
+
+  /* ---------- Markdown tối giản ---------- */
+  function inlineMd(text) {
+    return esc(text)
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>")
+      .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2" rel="noreferrer">$1</a>');
+  }
+
+  function splitRow(line) {
+    return line.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map((cell) => cell.trim());
+  }
+
+  function mdToHtml(md) {
+    const lines = String(md || "").replace(/\r/g, "").split("\n");
+    const out = [];
+    let i = 0;
+    const isTableRow = (line) => /^\s*\|.*\|\s*$/.test(line);
+    const isList = (line) => /^\s*([-*]|\d+\.)\s+/.test(line);
+
+    while (i < lines.length) {
+      const line = lines[i];
+
+      if (/^```/.test(line)) {
+        const code = [];
+        i++;
+        while (i < lines.length && !/^```/.test(lines[i])) { code.push(lines[i]); i++; }
+        i++;
+        out.push("<pre><code>" + esc(code.join("\n")) + "</code></pre>");
+        continue;
+      }
+
+      const heading = line.match(/^(#{1,4})\s+(.*)$/);
+      if (heading) {
+        const level = heading[1].length;
+        out.push("<h" + level + ">" + inlineMd(heading[2]) + "</h" + level + ">");
+        i++;
+        continue;
+      }
+
+      if (isTableRow(line) && i + 1 < lines.length && /^\s*\|[\s:|-]+\|\s*$/.test(lines[i + 1])) {
+        const head = splitRow(line);
+        i += 2;
+        const rows = [];
+        while (i < lines.length && isTableRow(lines[i])) { rows.push(splitRow(lines[i])); i++; }
+        out.push(
+          '<div class="table-wrap"><table><thead><tr>' +
+          head.map((cell) => "<th>" + inlineMd(cell) + "</th>").join("") +
+          "</tr></thead><tbody>" +
+          rows.map((row) => "<tr>" + row.map((cell) => "<td>" + inlineMd(cell) + "</td>").join("") + "</tr>").join("") +
+          "</tbody></table></div>"
+        );
+        continue;
+      }
+
+      if (/^>\s?/.test(line)) {
+        const quote = [];
+        while (i < lines.length && /^>\s?/.test(lines[i])) { quote.push(lines[i].replace(/^>\s?/, "")); i++; }
+        out.push("<blockquote>" + inlineMd(quote.join(" ")) + "</blockquote>");
+        continue;
+      }
+
+      if (/^(---+|\*\*\*+)\s*$/.test(line)) { out.push("<hr>"); i++; continue; }
+
+      if (isList(line)) {
+        const ordered = /^\s*\d+\.\s+/.test(line);
+        const items = [];
+        while (i < lines.length && (isList(lines[i]) || (lines[i].trim() && /^\s{2,}/.test(lines[i])))) {
+          if (isList(lines[i])) {
+            items.push(lines[i].replace(/^\s*([-*]|\d+\.)\s+/, ""));
+          } else if (items.length) {
+            items[items.length - 1] += " " + lines[i].trim();
+          }
+          i++;
+        }
+        const tag = ordered ? "ol" : "ul";
+        out.push("<" + tag + ">" + items.map((item) => "<li>" + inlineMd(item) + "</li>").join("") + "</" + tag + ">");
+        continue;
+      }
+
+      if (!line.trim()) { i++; continue; }
+
+      const para = [];
+      while (i < lines.length && lines[i].trim() && !/^(#{1,4}\s|```|>\s?)/.test(lines[i]) && !isList(lines[i]) && !isTableRow(lines[i])) {
+        para.push(lines[i]);
+        i++;
+      }
+      out.push("<p>" + inlineMd(para.join(" ")) + "</p>");
+    }
+    return out.join("\n");
+  }
+
+  function formatDate(iso) {
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return iso || "—";
+    return date.toLocaleString("vi-VN", { hour: "2-digit", minute: "2-digit", day: "2-digit", month: "2-digit", year: "numeric" });
+  }
+
+  /* ---------- Tổng quan ---------- */
+  $$("[data-count]").forEach((node) => {
+    const key = node.getAttribute("data-count");
+    if (totals[key] != null) node.textContent = totals[key];
+  });
+  $("#meta-line").textContent = "Cập nhật lúc " + formatDate(data.generatedAt);
+  $("#built-at").textContent = formatDate(data.generatedAt);
+
+  const bar = $("#composition-bar");
+  const legend = $("#source-legend");
+  const maxCount = Math.max.apply(null, data.sources.map((source) => source.count));
+  bar.innerHTML = data.sources.map((source, index) => {
+    const width = (source.count / totals.skills) * 100;
+    const color = SEGMENT_COLORS[index % SEGMENT_COLORS.length];
+    return '<span style="width:' + width.toFixed(2) + '%;background:' + color + '" title="' +
+      esc(source.name) + ": " + source.count + ' skill"></span>';
+  }).join("");
+
+  legend.innerHTML = data.sources.map((source, index) => {
+    const color = SEGMENT_COLORS[index % SEGMENT_COLORS.length];
+    return "<li>" +
+      '<span class="dot" style="background:' + color + '"></span>' +
+      "<span>" + esc(source.name) + "</span>" +
+      '<span class="count">' + source.count + "</span>" +
+      '<span class="path">' + esc(source.path || "—") + "</span>" +
+      "</li>";
+  }).join("");
+
+  const checks = [
+    { label: "Skill có SKILL.md", value: totals.globalSkills + "/" + (totals.globalSkills + totals.brokenLinks) },
+    { label: "Symlink gãy", value: String(totals.brokenLinks), warn: totals.brokenLinks > 0 },
+    { label: "Agent / subagent riêng", value: String(totals.agents) },
+    { label: "MCP server global", value: String(totals.mcp) },
+    { label: "Lệnh custom", value: String(totals.commands) },
+    { label: "Nguồn skill", value: String(totals.sources) },
+  ];
+  $("#checks").innerHTML = checks.map((row) =>
+    "<li><span>" + esc(row.label) + '</span><span class="val' + (row.warn ? " warn" : "") + '">' + esc(row.value) + "</span></li>"
+  ).join("");
+
+  /* ---------- Skills ---------- */
+  const state = { scope: "global", domain: "all", q: "" };
+  const list = $("#skill-list");
+  const counter = $("#skills-counter");
+  const search = $("#q");
+
+  function normalize(text) {
+    return String(text || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+
+  const scopeCounts = {
+    global: totals.globalSkills,
+    builtin: totals.builtinSkills,
+    synced: totals.syncedSkills,
+    all: totals.skills,
+  };
+
+  const scopeChips = $("#scope-chips");
+  [["global", "Toàn cục"], ["builtin", "Built-in"], ["synced", "Claude synced"], ["all", "Tất cả"]].forEach(([key, label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "chip";
+    button.dataset.scope = key;
+    button.setAttribute("aria-pressed", String(key === state.scope));
+    button.innerHTML = esc(label) + ' <span class="n">' + scopeCounts[key] + "</span>";
+    scopeChips.appendChild(button);
+  });
+
+  const domainChips = $("#domain-chips");
+  const domainNames = ["all"].concat(Object.keys(data.domains || {}));
+  const domainLabels = { all: "Tất cả" };
+  domainNames.forEach((key) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "chip";
+    button.dataset.domain = key;
+    button.setAttribute("aria-pressed", String(key === state.domain));
+    button.innerHTML = esc(domainLabels[key] || key) + ' <span class="n">' +
+      (data.domains[key] != null ? data.domains[key] : totals.skills) + "</span>";
+    domainChips.appendChild(button);
+  });
+
+  function filtered() {
+    const query = normalize(state.q.trim());
+    return skills.filter((skill) => {
+      if (state.scope !== "all" && skill.scope !== state.scope) return false;
+      if (state.domain !== "all" && skill.domain !== state.domain) return false;
+      if (!query) return true;
+      return normalize(skill.name + " " + skill.description + " " + skill.source).includes(query);
+    });
+  }
+
+  function detailRow(label, value, extraClass, hideEmpty) {
+    if (hideEmpty && !value) return "";
+    return "<div" + (extraClass === "wide" ? ' class="wide"' : "") + "><dt>" + esc(label) + "</dt><dd" +
+      (extraClass === "mono" ? ' class="mono"' : "") + ">" + esc(value) + "</dd></div>";
+  }
+
+  function renderSkills() {
+    const items = filtered();
+    counter.textContent = items.length + " / " + skills.length + " skill";
+
+    if (!items.length) {
+      list.innerHTML = '<p class="empty">Không có skill khớp bộ lọc. Thử xoá ô tìm hoặc chọn “Tất cả”.</p>';
+      return;
+    }
+
+    list.innerHTML = items.map((skill, index) => {
+      const kind = KIND[skill.kind] || KIND.symlink;
+      const bodyId = "skill-body-" + index;
+      return '<article class="skill">' +
+        '<button class="skill-head" type="button" aria-expanded="false" aria-controls="' + bodyId + '">' +
+          '<span class="skill-name">' + esc(skill.name) + "</span>" +
+          '<span class="skill-desc">' + esc(skill.description) + "</span>" +
+          '<span class="skill-meta">' +
+            '<span class="tag">' + esc(skill.domain) + "</span>" +
+            '<span class="src"><span class="dot ' + kind.dot + '"></span>' + esc(skill.source) + "</span>" +
+          "</span>" +
+          '<span class="chev" aria-hidden="true">+</span>' +
+        "</button>" +
+        '<div class="skill-body" id="' + bodyId + '" hidden>' +
+          '<dl class="detail-grid">' +
+            detailRow("Đường dẫn", skill.path || "—", "mono") +
+            detailRow("Liên kết thực", skill.realPath && skill.realPath !== skill.path ? skill.realPath : "", "mono", true) +
+            detailRow("Nguồn", skill.source, "") +
+            detailRow("Kiểu", kind.label, "") +
+            detailRow("Phạm vi", SCOPE_LABEL[skill.scope] || skill.scope, "") +
+            detailRow("Số file trong skill", skill.files ? String(skill.files) : "", "", true) +
+            detailRow("License", skill.license, "", true) +
+          "</dl>" +
+        "</div>" +
+      "</article>";
+    }).join("");
+  }
+
+  list.addEventListener("click", (event) => {
+    const button = event.target.closest(".skill-head");
+    if (!button) return;
+    const expanded = button.getAttribute("aria-expanded") === "true";
+    const body = document.getElementById(button.getAttribute("aria-controls"));
+    button.setAttribute("aria-expanded", String(!expanded));
+    body.hidden = expanded;
+    button.querySelector(".chev").textContent = expanded ? "+" : "−";
+  });
+
+  scopeChips.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-scope]");
+    if (!button) return;
+    state.scope = button.dataset.scope;
+    $$("[data-scope]", scopeChips).forEach((node) => node.setAttribute("aria-pressed", String(node === button)));
+    renderSkills();
+  });
+
+  domainChips.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-domain]");
+    if (!button) return;
+    state.domain = button.dataset.domain;
+    $$("[data-domain]", domainChips).forEach((node) => node.setAttribute("aria-pressed", String(node === button)));
+    renderSkills();
+  });
+
+  search.addEventListener("input", () => {
+    state.q = search.value;
+    renderSkills();
+  });
+
+  $("#skills-sub").textContent = "Toàn cục " + totals.globalSkills + " skill · tổng cộng " +
+    totals.skills + " skill đang được OpenCode nhận (kèm built-in và bản sync).";
+
+  renderSkills();
+
+  /* ---------- Workflow ---------- */
+  const customCommands = (data.commands || []).filter((command) => !command.builtin);
+  const builtinCommands = (data.commands || []).filter((command) => command.builtin);
+
+  customCommands.sort((a, b) => {
+    const ai = WORKFLOW_ORDER.indexOf(a.name);
+    const bi = WORKFLOW_ORDER.indexOf(b.name);
+    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi) || a.name.localeCompare(b.name);
+  });
+
+  $("#workflow-counter").textContent = customCommands.length + " lệnh custom · " + builtinCommands.length + " built-in";
+
+  $("#step-list").innerHTML = customCommands.map((command, index) => {
+    const number = String(index + 1).padStart(2, "0");
+    return '<li class="step">' +
+      '<span class="num" aria-hidden="true">' + number + "</span>" +
+      "<div>" +
+        '<span class="cmd">/' + esc(command.name) + "</span>" +
+        '<p class="desc">' + esc(command.description || "") + "</p>" +
+        '<p class="where">' + esc(command.path || "") + "</p>" +
+      "</div>" +
+      '<span class="agent">' + "agent: " + esc(command.agent || "mặc định") + "</span>" +
+    "</li>";
+  }).join("");
+
+  $("#builtin-commands").innerHTML = builtinCommands.map((command) =>
+    "<li><span><code>/" + esc(command.name) + "</code> — " + esc(command.description) + "</span><span class=\"val\">built-in</span></li>"
+  ).join("") || '<li><span>Không có</span></li>';
+
+  $("#workflow-doc").innerHTML = mdToHtml(data.docs.workflow);
+
+  /* ---------- Quy tắc ---------- */
+  $("#rules-doc").innerHTML = mdToHtml(data.docs.rules);
+  $("#sources-doc").innerHTML = mdToHtml(data.docs.skillSources);
+  $("#rules-counter").textContent = "AGENTS.md · " + totals.sources + " nguồn skill";
+
+  const config = data.config;
+  const facts = [
+    ["Thư mục", config.path],
+    ["Skills", config.skillsDir],
+    ["Commands", config.commandsDir],
+    ["Đồng bộ skill", config.linkScript],
+    ["Todo", config.todo ? "bật" : "tắt"],
+    ["Plugin", String(config.pluginCount)],
+    ["Agent riêng", String(config.agents.length)],
+    ["MCP", String(config.mcp.length)],
+  ];
+  $("#config-facts").innerHTML = facts.map(([key, value]) =>
+    '<li><span class="k">' + esc(key) + '</span><span class="v">' + esc(value) + "</span></li>"
+  ).join("");
+
+  $("#permission-rows").innerHTML = config.permissions.map((permission) =>
+    "<tr><td class=\"mono\">" + esc(permission.resource) + "</td><td>" + esc(permission.effect) + "</td></tr>"
+  ).join("") || '<tr><td colspan="2">Không có</td></tr>';
+
+  /* ---------- Tabs ---------- */
+  const sections = { overview: $("#overview"), skills: $("#skills"), workflow: $("#workflow"), rules: $("#rules") };
+  const tabButtons = $$("[data-tab]");
+
+  function showTab(name, updateHash) {
+    if (!sections[name]) name = "overview";
+    Object.keys(sections).forEach((key) => { sections[key].hidden = key !== name; });
+    tabButtons.forEach((button) => button.setAttribute("aria-selected", String(button.dataset.tab === name)));
+    if (updateHash) {
+      history.replaceState(null, "", "#" + name);
+      if (name === "overview") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        sections[name].scrollIntoView({ block: "start", behavior: "smooth" });
+      }
+    }
+  }
+
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => showTab(button.dataset.tab, true));
+  });
+
+  const initial = (location.hash || "").replace("#", "");
+  showTab(sections[initial] ? initial : "overview", false);
+  if (initial && initial !== "overview" && sections[initial]) {
+    sections[initial].scrollIntoView({ block: "start" });
+  }
+})();
+</script>
+</body>
+</html>
