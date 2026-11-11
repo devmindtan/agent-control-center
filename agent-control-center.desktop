@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Agent Control Center
+Comment=Xem skills, workflow và quy tắc global của agent
+Exec=python3 "@DIR@/serve.py"
+Path=@DIR@
+Icon=applications-development
+Terminal=false
+Categories=Development;
+StartupNotify=false
