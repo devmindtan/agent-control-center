@@ -13,16 +13,22 @@ xdg-open index.html
 
 | Mục | Số | Nguồn |
 | --- | --- | --- |
-| Skill toàn cục | 46 | `~/.config/opencode/skills/` (44 symlink + 2 bản copy) |
+| Skill toàn cục | 54 | `~/.config/opencode/skills/` (51 symlink + 3 bản copy) |
 | Skill built-in | 3 | `opencode`, `report`, `browser` |
 | Skill Claude synced | 4 | `~/.claude/skills/synced/` |
+| Tổng skill đăng ký | 61 | toàn cục + built-in + synced |
 | Lệnh workflow | 4 | `~/.config/opencode/commands/` |
 | Quy tắc | 1 | `~/.config/opencode/AGENTS.md` |
 | Agent / MCP riêng | 0 | — |
 
+8 skill mới cho phát triển ứng dụng: `ui-ux-pro-max`, `design-system`,
+`ui-styling`, `supabase`, `supabase-postgres-best-practices`,
+`react-native-best-practices`, `react-navigation`, `upgrading-react-native`.
+
 Gồm 4 tab: **Tổng quan** (số liệu, nguồn skill, tình trạng), **Skills** (tìm,
 lọc theo phạm vi/nhóm, bấm để xem đường dẫn và nguồn), **Workflow** (chuỗi
-`/plan → /check → /review → /commit`), **Quy tắc** (AGENTS.md và cấu hình).
+`/plan → /check → /review → /commit`), **Quy tắc** (AGENTS.md, cấu hình và mục
+lục để nhảy nhanh giữa các mục).
 
 ## Cập nhật số liệu
 

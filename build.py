@@ -35,6 +35,9 @@ DOMAINS = {
     },
     "Kiểm thử": {"playwright", "webapp-testing", "screenshot"},
     "Bảo mật": {"security-best-practices", "security-threat-model"},
+    "Thiết kế & UX": {"ui-ux-pro-max", "design-system", "ui-styling"},
+    "Backend & Dữ liệu": {"supabase", "supabase-postgres-best-practices"},
+    "Mobile": {"react-native-best-practices", "react-navigation", "upgrading-react-native"},
 }
 
 SOURCE_LABELS = [
@@ -42,7 +45,16 @@ SOURCE_LABELS = [
     ("anthropics--skills", "anthropics/skills", "20-repo-generate-video/repos/anthropics--skills"),
     ("vercel-labs--agent-skills", "vercel-labs/agent-skills", "20-repo-generate-video/repos/vercel-labs--agent-skills"),
     ("20-repo-generate-video/skills", "20-repo-generate-video", "20-repo-generate-video/skills"),
+    ("nextlevelbuilder--ui-ux-pro-max-skill", "nextlevelbuilder/ui-ux-pro-max", "nextlevelbuilder--ui-ux-pro-max-skill"),
+    ("supabase--agent-skills", "supabase/agent-skills", "supabase--agent-skills"),
+    ("callstackincubator--agent-skills", "callstack/agent-skills", "callstackincubator--agent-skills"),
 ]
+
+COPY_SOURCES = {
+    "playwright": ("watch2learn", "watch2learn/.agents/skills"),
+    "free-only-dependencies": ("watch2learn", "watch2learn/.agents/skills"),
+    "ui-ux-pro-max": ("nextlevelbuilder/ui-ux-pro-max", "agent-skill-repos/nextlevelbuilder--ui-ux-pro-max-skill"),
+}
 
 
 def parse_frontmatter(path: Path) -> tuple[dict, str]:
@@ -150,7 +162,14 @@ def collect_skills() -> tuple[list[dict], int]:
             continue
         meta, _ = parse_frontmatter(skill_md)
         real = entry.resolve()
-        source, source_path = source_of(real)
+        is_link = entry.is_symlink()
+        if is_link:
+            source, source_path = source_of(real)
+        else:
+            label, rel = COPY_SOURCES.get(
+                entry.name, ("Bản copy nội bộ", str(CONFIG / "skills"))
+            )
+            source, source_path = label, str(HOME / "Documents/code" / rel)
         name = meta.get("name") or entry.name
         skills.append({
             "name": name,
@@ -159,7 +178,7 @@ def collect_skills() -> tuple[list[dict], int]:
             "realPath": str(real),
             "source": source,
             "sourcePath": source_path,
-            "kind": "copy" if not entry.is_symlink() else "symlink",
+            "kind": "symlink" if is_link else "copy",
             "domain": domain_of(entry.name),
             "files": count_files(real),
             "license": meta.get("license", ""),

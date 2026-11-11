@@ -1,16 +1,16 @@
 /* Sinh tự động bởi build.py — đừng sửa tay. */
 window.AGENT_DATA = {
- "generatedAt": "2026-11-11T21:38:10+07:00",
+ "generatedAt": "2026-11-11T21:57:59+07:00",
  "totals": {
-  "skills": 53,
-  "globalSkills": 46,
+  "skills": 61,
+  "globalSkills": 54,
   "builtinSkills": 3,
   "syncedSkills": 4,
   "commands": 4,
   "builtinCommands": 2,
   "agents": 0,
   "mcp": 0,
-  "sources": 7,
+  "sources": 9,
   "brokenLinks": 0
  },
  "skills": [
@@ -51,6 +51,19 @@ window.AGENT_DATA = {
    "domain": "Web & UI",
    "files": 83,
    "license": "Complete terms in LICENSE.txt",
+   "scope": "global"
+  },
+  {
+   "name": "design-system",
+   "description": "Token architecture, component specifications, and slide generation. Three-layer tokens (primitive→semantic→component), CSS variables, spacing/typography scales, component specs, strategic slide creation. Use for design tokens, systematic design, brand-compliant presentations.",
+   "path": "/home/devmindtan/.config/opencode/skills/design-system/SKILL.md",
+   "realPath": "/home/devmindtan/Documents/code/agent-skill-repos/nextlevelbuilder--ui-ux-pro-max-skill/.claude/skills/design-system",
+   "source": "nextlevelbuilder/ui-ux-pro-max",
+   "sourcePath": "/home/devmindtan/Documents/code/agent-skill-repos/nextlevelbuilder--ui-ux-pro-max-skill",
+   "kind": "symlink",
+   "domain": "Thiết kế & UX",
+   "files": 28,
+   "license": "MIT",
    "scope": "global"
   },
   {
@@ -97,8 +110,8 @@ window.AGENT_DATA = {
    "description": "Evaluate any package, model, dataset, API, hosted service, analytics tool, font, icon set, or deployment choice for a strict no-paid-services policy and license compatibility. Use before introducing or replacing external material; not for edits with no dependency or data-source impact.",
    "path": "/home/devmindtan/.config/opencode/skills/free-only-dependencies/SKILL.md",
    "realPath": "/home/devmindtan/.config/opencode/skills/free-only-dependencies",
-   "source": "Bản copy nội bộ",
-   "sourcePath": "/home/devmindtan/.config/opencode/skills",
+   "source": "watch2learn",
+   "sourcePath": "/home/devmindtan/Documents/code/watch2learn/.agents/skills",
    "kind": "copy",
    "domain": "Kỹ thuật",
    "files": 3,
@@ -331,8 +344,8 @@ window.AGENT_DATA = {
    "description": "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.",
    "path": "/home/devmindtan/.config/opencode/skills/playwright/SKILL.md",
    "realPath": "/home/devmindtan/.config/opencode/skills/playwright",
-   "source": "Bản copy nội bộ",
-   "sourcePath": "/home/devmindtan/.config/opencode/skills",
+   "source": "watch2learn",
+   "sourcePath": "/home/devmindtan/Documents/code/watch2learn/.agents/skills",
    "kind": "copy",
    "domain": "Kiểm thử",
    "files": 9,
@@ -363,6 +376,32 @@ window.AGENT_DATA = {
    "domain": "Tài liệu",
    "files": 56,
    "license": "Proprietary. LICENSE.txt has complete terms",
+   "scope": "global"
+  },
+  {
+   "name": "react-native-best-practices",
+   "description": "Provides React Native performance optimization guidelines for FPS, TTI, bundle size, memory leaks, re-renders, and animations. Applies to tasks involving Hermes optimization, JS thread blocking, bridge overhead, FlashList, native modules, or debugging jank and frame drops.",
+   "path": "/home/devmindtan/.config/opencode/skills/react-native-best-practices/SKILL.md",
+   "realPath": "/home/devmindtan/Documents/code/agent-skill-repos/callstackincubator--agent-skills/skills/react-native-best-practices",
+   "source": "callstack/agent-skills",
+   "sourcePath": "/home/devmindtan/Documents/code/agent-skill-repos/callstackincubator--agent-skills",
+   "kind": "symlink",
+   "domain": "Mobile",
+   "files": 44,
+   "license": "MIT",
+   "scope": "global"
+  },
+  {
+   "name": "react-navigation",
+   "description": "Provides React Navigation UI patterns for stacks, tabs, drawers etc. Use when building navigation UIs with React Navigation, configuring headers, bottom sheets or handling safe areas and insets.",
+   "path": "/home/devmindtan/.config/opencode/skills/react-navigation/SKILL.md",
+   "realPath": "/home/devmindtan/Documents/code/agent-skill-repos/callstackincubator--agent-skills/skills/react-navigation",
+   "source": "callstack/agent-skills",
+   "sourcePath": "/home/devmindtan/Documents/code/agent-skill-repos/callstackincubator--agent-skills",
+   "kind": "symlink",
+   "domain": "Mobile",
+   "files": 10,
+   "license": "MIT",
    "scope": "global"
   },
   {
@@ -587,6 +626,32 @@ window.AGENT_DATA = {
    "scope": "global"
   },
   {
+   "name": "supabase",
+   "description": "Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, declarative schemas, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector); debugging and troubleshooting errors or unexpected behavior on Supabase projects (HTTP errors, Postgres errors, RLS surprises, permission denied, schema cache issues, timeouts, Edge Function crashes, Realtime drops, Storage failures) and reading or querying logs (Logs Explorer, ClickHouse).",
+   "path": "/home/devmindtan/.config/opencode/skills/supabase/SKILL.md",
+   "realPath": "/home/devmindtan/Documents/code/agent-skill-repos/supabase--agent-skills/skills/supabase",
+   "source": "supabase/agent-skills",
+   "sourcePath": "/home/devmindtan/Documents/code/agent-skill-repos/supabase--agent-skills",
+   "kind": "symlink",
+   "domain": "Backend & Dữ liệu",
+   "files": 4,
+   "license": "",
+   "scope": "global"
+  },
+  {
+   "name": "supabase-postgres-best-practices",
+   "description": "Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill BEFORE writing or changing anything that lives in a Postgres database: creating or altering tables and columns (including choosing column types), schema design, migrations and declarative schema files, RLS policies and the tests that verify them, indexes, triggers, database functions, queues and scheduled jobs (pg_cron, pgmq), vector/semantic search (pgvector), and restoring dumps (pg_restore) or importing data. Also load it when diagnosing slow queries, high CPU, timeouts, EXPLAIN plans, connection exhaustion, locking, bloat, or rows visible to the wrong user or tenant. This is not just a performance guide — schema, migration, security, and SQL authoring tasks need these rules too, even for a one-column change or a single query.",
+   "path": "/home/devmindtan/.config/opencode/skills/supabase-postgres-best-practices/SKILL.md",
+   "realPath": "/home/devmindtan/Documents/code/agent-skill-repos/supabase--agent-skills/skills/supabase-postgres-best-practices",
+   "source": "supabase/agent-skills",
+   "sourcePath": "/home/devmindtan/Documents/code/agent-skill-repos/supabase--agent-skills",
+   "kind": "symlink",
+   "domain": "Backend & Dữ liệu",
+   "files": 36,
+   "license": "MIT",
+   "scope": "global"
+  },
+  {
    "name": "theme-factory",
    "description": "Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly.",
    "path": "/home/devmindtan/.config/opencode/skills/theme-factory/SKILL.md",
@@ -597,6 +662,45 @@ window.AGENT_DATA = {
    "domain": "Web & UI",
    "files": 13,
    "license": "Complete terms in LICENSE.txt",
+   "scope": "global"
+  },
+  {
+   "name": "ui-styling",
+   "description": "Create beautiful, accessible user interfaces with shadcn/ui components (built on Radix UI + Tailwind), Tailwind CSS utility-first styling, and canvas-based visual designs. Use when building user interfaces, implementing design systems, creating responsive layouts, adding accessible components (dialogs, dropdowns, forms, tables), customizing themes and colors, implementing dark mode, generating visual designs and posters, or establishing consistent styling patterns across applications.",
+   "path": "/home/devmindtan/.config/opencode/skills/ui-styling/SKILL.md",
+   "realPath": "/home/devmindtan/Documents/code/agent-skill-repos/nextlevelbuilder--ui-ux-pro-max-skill/.claude/skills/ui-styling",
+   "source": "nextlevelbuilder/ui-ux-pro-max",
+   "sourcePath": "/home/devmindtan/Documents/code/agent-skill-repos/nextlevelbuilder--ui-ux-pro-max-skill",
+   "kind": "symlink",
+   "domain": "Thiết kế & UX",
+   "files": 98,
+   "license": "MIT",
+   "scope": "global"
+  },
+  {
+   "name": "ui-ux-pro-max",
+   "description": "UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design systems, accessibility, interaction, responsive layout, typography, color, charts, and stack-specific UI implementation. Searchable local data: 80 searchable styles (51 active), 192 product palettes and reasoning profiles, 74 font pairings, 120 UX guidelines, 105 icons, 17 GSAP presets, 25 chart types, and 22 stacks.",
+   "path": "/home/devmindtan/.config/opencode/skills/ui-ux-pro-max/SKILL.md",
+   "realPath": "/home/devmindtan/.config/opencode/skills/ui-ux-pro-max",
+   "source": "nextlevelbuilder/ui-ux-pro-max",
+   "sourcePath": "/home/devmindtan/Documents/code/agent-skill-repos/nextlevelbuilder--ui-ux-pro-max-skill",
+   "kind": "copy",
+   "domain": "Thiết kế & UX",
+   "files": 75,
+   "license": "",
+   "scope": "global"
+  },
+  {
+   "name": "upgrading-react-native",
+   "description": "Upgrades React Native apps to newer versions by applying rn-diff-purge template diffs, updating package.json dependencies, migrating native iOS and Android configuration, resolving CocoaPods and Gradle changes, and handling breaking API updates. Use when upgrading React Native, bumping RN version, updating from RN 0.x to 0.y, or migrating Expo SDK alongside a React Native upgrade.",
+   "path": "/home/devmindtan/.config/opencode/skills/upgrading-react-native/SKILL.md",
+   "realPath": "/home/devmindtan/Documents/code/agent-skill-repos/callstackincubator--agent-skills/skills/upgrading-react-native",
+   "source": "callstack/agent-skills",
+   "sourcePath": "/home/devmindtan/Documents/code/agent-skill-repos/callstackincubator--agent-skills",
+   "kind": "symlink",
+   "domain": "Mobile",
+   "files": 9,
+   "license": "MIT",
    "scope": "global"
   },
   {
@@ -757,11 +861,14 @@ window.AGENT_DATA = {
  "domains": {
   "Web & UI": 9,
   "Khác": 7,
+  "Thiết kế & UX": 3,
   "Tài liệu": 6,
   "Kỹ thuật": 5,
   "Animation & Video": 21,
   "Kiểm thử": 3,
-  "Bảo mật": 2
+  "Mobile": 3,
+  "Bảo mật": 2,
+  "Backend & Dữ liệu": 2
  },
  "sources": [
   {
@@ -775,13 +882,13 @@ window.AGENT_DATA = {
    "count": 13
   },
   {
-   "name": "vercel-labs/agent-skills",
-   "path": "/home/devmindtan/Documents/code/20-repo-generate-video/repos/20-repo-generate-video/repos/vercel-labs--agent-skills",
-   "count": 5
-  },
-  {
    "name": "watch2learn",
    "path": "/home/devmindtan/Documents/code/watch2learn/.agents/skills",
+   "count": 7
+  },
+  {
+   "name": "vercel-labs/agent-skills",
+   "path": "/home/devmindtan/Documents/code/20-repo-generate-video/repos/20-repo-generate-video/repos/vercel-labs--agent-skills",
    "count": 5
   },
   {
@@ -795,8 +902,18 @@ window.AGENT_DATA = {
    "count": 3
   },
   {
-   "name": "Bản copy nội bộ",
-   "path": "/home/devmindtan/.config/opencode/skills",
+   "name": "callstack/agent-skills",
+   "path": "/home/devmindtan/Documents/code/agent-skill-repos/callstackincubator--agent-skills",
+   "count": 3
+  },
+  {
+   "name": "nextlevelbuilder/ui-ux-pro-max",
+   "path": "/home/devmindtan/Documents/code/agent-skill-repos/nextlevelbuilder--ui-ux-pro-max-skill",
+   "count": 3
+  },
+  {
+   "name": "supabase/agent-skills",
+   "path": "/home/devmindtan/Documents/code/agent-skill-repos/supabase--agent-skills",
    "count": 2
   }
  ],
@@ -838,8 +955,8 @@ window.AGENT_DATA = {
   "linkScript": "/home/devmindtan/.config/opencode/scripts/link-skills.sh"
  },
  "docs": {
-  "rules": "# Quy tắc chung cho mọi dự án\n\n## Cách làm việc\n\n- Đọc `AGENTS.md`, `README`, tài liệu của dự án trước khi sửa. Quy tắc riêng của dự án được ưu tiên hơn file này.\n- Chọn thay đổi nhỏ nhất giải quyết trọn vẹn vấn đề. Tái dùng code, tính năng nền tảng và dependency có sẵn trước khi thêm abstraction hoặc package mới.\n- Không tuyên bố đã kiểm tra nếu chưa chạy kiểm tra thật. Nêu rõ lệnh đã chạy và kết quả.\n- Task mơ hồ hoặc ảnh hưởng rộng: lập kế hoạch ngắn, nêu điểm rủi ro, rồi mới sửa.\n- Trả lời bằng tiếng Việt, ngắn gọn, tập trung vào kết quả; giữ thuật ngữ kỹ thuật tiếng Anh khi cần.\n\n## Tài nguyên máy (bắt buộc)\n\n- Luôn giữ ít nhất 10% CPU, RAM và dung lượng đĩa trống để desktop không treo.\n- Chạy job nặng hoặc dài (ASR, TTS, render, model, build/test lớn) qua `limited <command>`. Dùng tối đa `nproc - 1` luồng, không dùng toàn bộ core.\n- Một job nặng tại một thời điểm: không chạy ASR/TTS/render/model song song, nhất là khi Studio hoặc browser đang mở.\n- Kiểm tra `free -g` và dung lượng đĩa trước batch lớn. Dọn output tạm do agent tạo khi xong, kể cả khi lỗi. Không xóa cache, dữ liệu người dùng, media gốc hoặc thư mục lạ để lấy chỗ.\n\n## Chi phí và quyền riêng tư\n\n- Chỉ dùng local, open-source hoặc dịch vụ miễn phí thật sự. Không thêm API trả phí, subscription, credit, dịch vụ bắt buộc thẻ thanh toán hoặc bản dùng thử mà đường dùng hữu ích phụ thuộc gói trả phí.\n- Không đưa media, tài liệu hoặc dữ liệu riêng lên dịch vụ công khai.\n- Kiểm tra license và điều khoản trước khi thêm package, model, dataset, font, icon hoặc dịch vụ.\n\n## Git\n\n- Mỗi thay đổi đã hoàn tất và kiểm chứng tạo một commit tập trung trên branch hiện tại.\n- Stage đúng path của thay đổi; không dùng `git add -A` hoặc `git add .` khi có thể có thay đổi khác.\n- Không push trừ khi người dùng yêu cầu rõ.\n- Không commit secret, `.env`, credential, model/cache, media tải về, `node_modules`, `dist`, log hoặc artifact test.\n- Chạy test liên quan trước commit. Nếu fail, báo rõ thay vì commit code hỏng.\n\n## Điều tra code\n\n- Câu hỏi \"ở đâu / gọi cái gì / liên kết thế nào\": dùng skill `graphify` khi có `graphify-out/` hoặc CLI `graphify`; sau đó chỉ đọc đúng file/line được chỉ.\n- Thay đổi rộng, nhiều file hoặc codebase lạ: graphify trước, rồi mới sửa.\n- Graph chỉ để điều hướng, không phải chân lý: xác minh lại trong source trước khi sửa.\n\n## Kiểm chứng\n\n- Chạy test/lint/typecheck hẹp cho phần đã đổi trước, sau đó chạy quality gate của dự án.\n- UI: chụp screenshot và kiểm tra desktop/tablet/mobile; dùng `playwright` hoặc `webapp-testing` cho hành vi thật. Không kết luận UI đạt chỉ từ HTTP/typecheck.\n- Bảo mật: dùng `security-best-practices` khi chạm upload, URL, parser, auth, secret, dữ liệu người dùng, subprocess hoặc filesystem path; dùng `security-threat-model` khi có trust boundary mới.\n\n## Định tuyến skill\n\n| Tình huống | Skill |\n| --- | --- |\n| Mọi task code | `ponytail` (thay đổi nhỏ nhất, không over-engineer) |\n| Điều tra codebase, kiến trúc, quan hệ file | `graphify` |\n| Browser, E2E, chụp ảnh UI | `playwright`, `webapp-testing`, `screenshot` |\n| Thiết kế UI mới, review UI/UX | `frontend-design`, `web-design-guidelines` |\n| React/Next.js, composition, view transition | `react-best-practices`, `composition-patterns`, `react-view-transitions` |\n| Animation web | `motion`, `gsap-*` |\n| Video bằng Remotion | `remotion-*` (bắt đầu từ `remotion-best-practices`) |\n| Word, PDF, PowerPoint, Excel | `docx`, `pdf`, `pptx`, `xlsx` |\n| Viết tài liệu, proposal, spec | `doc-coauthoring` |\n| Poster, art, theme, artifact HTML | `canvas-design`, `algorithmic-art`, `theme-factory`, `web-artifacts-builder` |\n| Tạo MCP server | `mcp-builder` |\n| Tạo hoặc sửa skill | `skill-creator` |\n| Thêm/thay dependency hoặc dịch vụ | `free-only-dependencies` |\n| Bảo mật | `security-best-practices`, `security-threat-model` |\n| Soát văn bản, docs | `writing-guidelines` |\n",
-  "workflow": "# Quy trình làm việc gợi ý\n\n## Task mới\n\n1. `/plan <mô tả>` để đọc đúng phạm vi, tìm code tái dùng và ra kế hoạch ngắn.\n2. Thực hiện bằng agent `build`. Giữ thay đổi nhỏ, đúng pattern của dự án.\n3. `/check` để chạy test/lint/typecheck thật.\n4. `/review` để soát diff trước khi commit.\n5. `/commit` để tạo một commit tập trung, không push.\n\n## Codebase lớn hoặc lạ\n\nDùng skill `graphify` trước khi grep/đọc nhiều file:\n\n```bash\ngraphify query \"where is X implemented\"\ngraphify explain \"<symbol>\"\ngraphify path \"<A>\" \"<B>\"\n```\n\nChỉ đọc đúng file/line được chỉ, rồi xác minh lại trong source.\n\n## UI / frontend\n\n- Đọc `frontend-design` trước khi chọn layout, typography, palette.\n- Áp dụng `web-design-guidelines` khi review.\n- Dùng `playwright` hoặc `webapp-testing` cho hành vi thật; chụp screenshot\n  desktop/tablet/mobile trước khi kết luận đạt.\n- React/Next.js: `react-best-practices`, `composition-patterns`,\n  `react-view-transitions`.\n\n## Video / animation\n\n- Remotion: bắt đầu từ `remotion-best-practices`, sau đó load đúng skill con\n  (`remotion-create`, `remotion-captions`, `remotion-render`, ...).\n- Web animation: `motion` hoặc `gsap-*`.\n- Render là job nặng: chạy qua `limited`, kiểm tra dung lượng trước, dọn temp\n  sau khi xong.\n\n## Tài liệu\n\n- Viết/spec/proposal: `doc-coauthoring`.\n- Word/PDF/PowerPoint/Excel: `docx`, `pdf`, `pptx`, `xlsx`.\n- Poster/art/theme: `canvas-design`, `algorithmic-art`, `theme-factory`.\n- Soát văn bản: `writing-guidelines`.\n\n## Hạn mức model free\n\nOpenCode không có API/UI công bố số request còn lại của từng model free.\n`/api/experimental/usage/limits` hiện trả `null`, và các model free dùng chung\nmột hạn mức free (hết là hết cho tất cả).\n\nCách kiểm tra đúng:\n\n- Đã dùng bao nhiêu hôm nay: `opencode stats --models --days 1`\n  (cột tokens/steps theo từng model, cost `$0.00`).\n- Còn dùng được không: `~/.local/bin/opencode-free-status [model]` — chạy một\n  request thật qua `opencode run` và đọc kết quả.\n- Khi bị chặn, response có `FreeUsageLimitError` + `Retry-After`; hạn mức free\n  dùng chung reset 00:00 UTC, tức 07:00 giờ VN.\n\nSai lầm cần tránh: `curl` thẳng vào\n`https://opencode.ai/inference/openai/v1/chat/completions` với\n`Authorization: Bearer public` luôn trả 429 dù OpenCode vẫn chạy được. Đó không\nphải thước đo hạn mức.\n\nHạn mức đã công bố: LongCat 2.5 Free giới hạn 100 request/ngày; các model free\nkhác \"free for a limited time\", không nêu con số.\n\n## Dependency mới\n\nChạy `free-only-dependencies` trước khi thêm package/model/dataset/dịch vụ.\nKiểm tra license, chi phí, khả năng chạy offline và đường dùng thực tế.\n\n## Bảo mật\n\n- `security-best-practices` khi chạm upload, URL, parser, auth, secret,\n  subprocess, filesystem path.\n- `security-threat-model` khi mở trust boundary mới hoặc review kiến trúc.\n\n## Tạo skill mới\n\nDùng `skill-creator`, đặt skill trong `~/.config/opencode/skills/<id>/SKILL.md`\nhoặc `.opencode/skills/` của dự án. Chạy lại\n`~/.config/opencode/scripts/link-skills.sh` nếu muốn đồng bộ bộ skill toàn cục.\n\n## Dự án có bộ skill riêng\n\n- Game studio: mở `game-studio/Claude-Code-Game-Studios` để OpenCode nhận\n  `.claude/skills` của dự án.\n- Novel: mở đúng thư mục con có `.claude/skills`/`skills`.\n- Watch2Learn, classify-pictures: mở đúng project root; `.agents/skills` được\n  nhận tự động.\n",
-  "skillSources": "# Bộ skill toàn cục cho OpenCode\n\nCác skill trong `~/.config/opencode/skills/` được chọn lọc từ những repo đã có\ntrong `~/Documents/code`, không tải bản trùng. Hầu hết là symlink để bản gốc\nvẫn là nguồn cập nhật duy nhất.\n\n## Nguồn\n\n| Nguồn | Skill |\n| --- | --- |\n| `watch2learn/.agents/skills` | `ponytail`, `graphify`, `security-best-practices`, `security-threat-model`, `free-only-dependencies`, `playwright`, `screenshot` |\n| `20-repo-generate-video/repos/anthropics--skills` | `docx`, `pdf`, `pptx`, `xlsx`, `doc-coauthoring`, `mcp-builder`, `skill-creator`, `frontend-design`, `webapp-testing`, `web-artifacts-builder`, `canvas-design`, `algorithmic-art`, `theme-factory` |\n| `20-repo-generate-video/repos/vercel-labs--agent-skills` | `web-design-guidelines`, `react-best-practices`, `composition-patterns`, `react-view-transitions`, `writing-guidelines` |\n| `20-repo-generate-video/skills` | `motion`, `gsap-*`, `remotion-*` |\n\nSkill lấy từ dự án cụ thể (Watch2Learn, novel, game studio) không được đưa lên\ntoàn cục để tránh nhiễu. Chúng vẫn được OpenCode nhận khi mở đúng thư mục dự án\nnhờ `.claude/skills` hoặc `.agents/skills` của dự án.\n\n## Đồng bộ lại\n\n```bash\n~/.config/opencode/scripts/link-skills.sh\n```\n\nScript idempotent: tạo lại symlink, bỏ qua nguồn thiếu và báo lỗi. Riêng\n`playwright` và `free-only-dependencies` được copy và vá: `playwright` vì bản\ngốc hard-code `~/.codex`, `free-only-dependencies` vì mô tả gốc gắn với một dự án.\n\n## Kiểm tra\n\n```bash\nopencode api get /api/skill | python3 -c \"import sys,json; print(len(json.load(sys.stdin)['data']))\"\nopencode api get /api/command\n```\n\n## Điều kiện cần của một số skill\n\n- `graphify`: CLI `graphify` đã có tại `~/.local/bin/graphify`.\n- `playwright`: cần `npx` (đã có). Wrapper tự tải `@playwright/cli` khi chạy lần đầu.\n- `webapp-testing`: cần Python `playwright`; nếu chưa có, dùng skill `playwright`\n  hoặc skill `browser` có sẵn của OpenCode.\n- `screenshot`: dùng `gnome-screenshot` trên máy này.\n- `docx`/`pdf`/`pptx`/`xlsx`: cần Python và các thư viện tương ứng; skill sẽ\n  hướng dẫn khi chạy.\n\n## Quy tắc toàn cục\n\n- `~/.config/opencode/AGENTS.md`: quy tắc làm việc, tài nguyên máy, git, kiểm\n  chứng và định tuyến skill.\n- `~/.config/opencode/opencode.json`: bật todo và hỏi trước các lệnh nguy hiểm\n  (`git push`, `git reset --hard`, `git clean`, `sudo`, `rm -rf`).\n- `~/.config/opencode/commands/`: `/review`, `/commit`, `/plan`, `/check`.\n"
+  "rules": "# Quy tắc chung cho mọi dự án\n\n## Cách làm việc\n\n- Đọc `AGENTS.md`, `README`, tài liệu của dự án trước khi sửa. Quy tắc riêng của dự án được ưu tiên hơn file này.\n- Chọn thay đổi nhỏ nhất giải quyết trọn vẹn vấn đề. Tái dùng code, tính năng nền tảng và dependency có sẵn trước khi thêm abstraction hoặc package mới.\n- Không tuyên bố đã kiểm tra nếu chưa chạy kiểm tra thật. Nêu rõ lệnh đã chạy và kết quả.\n- Task mơ hồ hoặc ảnh hưởng rộng: lập kế hoạch ngắn, nêu điểm rủi ro, rồi mới sửa.\n- Trả lời bằng tiếng Việt, ngắn gọn, tập trung vào kết quả; giữ thuật ngữ kỹ thuật tiếng Anh khi cần.\n\n## Tài nguyên máy (bắt buộc)\n\n- Luôn giữ ít nhất 10% CPU, RAM và dung lượng đĩa trống để desktop không treo.\n- Chạy job nặng hoặc dài (ASR, TTS, render, model, build/test lớn) qua `limited <command>`. Dùng tối đa `nproc - 1` luồng, không dùng toàn bộ core.\n- Một job nặng tại một thời điểm: không chạy ASR/TTS/render/model song song, nhất là khi Studio hoặc browser đang mở.\n- Kiểm tra `free -g` và dung lượng đĩa trước batch lớn. Dọn output tạm do agent tạo khi xong, kể cả khi lỗi. Không xóa cache, dữ liệu người dùng, media gốc hoặc thư mục lạ để lấy chỗ.\n\n## Chi phí và quyền riêng tư\n\n- Chỉ dùng local, open-source hoặc dịch vụ miễn phí thật sự. Không thêm API trả phí, subscription, credit, dịch vụ bắt buộc thẻ thanh toán hoặc bản dùng thử mà đường dùng hữu ích phụ thuộc gói trả phí.\n- Không đưa media, tài liệu hoặc dữ liệu riêng lên dịch vụ công khai.\n- Kiểm tra license và điều khoản trước khi thêm package, model, dataset, font, icon hoặc dịch vụ.\n\n## Git\n\n- Mỗi thay đổi đã hoàn tất và kiểm chứng tạo một commit tập trung trên branch hiện tại.\n- Stage đúng path của thay đổi; không dùng `git add -A` hoặc `git add .` khi có thể có thay đổi khác.\n- Không push trừ khi người dùng yêu cầu rõ.\n- Không commit secret, `.env`, credential, model/cache, media tải về, `node_modules`, `dist`, log hoặc artifact test.\n- Chạy test liên quan trước commit. Nếu fail, báo rõ thay vì commit code hỏng.\n\n## Điều tra code\n\n- Câu hỏi \"ở đâu / gọi cái gì / liên kết thế nào\": dùng skill `graphify` khi có `graphify-out/` hoặc CLI `graphify`; sau đó chỉ đọc đúng file/line được chỉ.\n- Thay đổi rộng, nhiều file hoặc codebase lạ: graphify trước, rồi mới sửa.\n- Graph chỉ để điều hướng, không phải chân lý: xác minh lại trong source trước khi sửa.\n\n## Kiểm chứng\n\n- Chạy test/lint/typecheck hẹp cho phần đã đổi trước, sau đó chạy quality gate của dự án.\n- UI: chụp screenshot và kiểm tra desktop/tablet/mobile; dùng `playwright` hoặc `webapp-testing` cho hành vi thật. Không kết luận UI đạt chỉ từ HTTP/typecheck.\n- Bảo mật: dùng `security-best-practices` khi chạm upload, URL, parser, auth, secret, dữ liệu người dùng, subprocess hoặc filesystem path; dùng `security-threat-model` khi có trust boundary mới.\n\n## Định tuyến skill\n\n| Tình huống | Skill |\n| --- | --- |\n| Mọi task code | `ponytail` (thay đổi nhỏ nhất, không over-engineer) |\n| Điều tra codebase, kiến trúc, quan hệ file | `graphify` |\n| Browser, E2E, chụp ảnh UI | `playwright`, `webapp-testing`, `screenshot` |\n| Thiết kế UI mới, review UI/UX | `frontend-design`, `web-design-guidelines` |\n| Thiết kế UI/UX chuyên sâu, design tokens, shadcn/Tailwind | `ui-ux-pro-max`, `design-system`, `ui-styling` |\n| Backend, Postgres, auth, RLS | `supabase`, `supabase-postgres-best-practices` |\n| App mobile React Native | `react-native-best-practices`, `react-navigation`, `upgrading-react-native` |\n| React/Next.js, composition, view transition | `react-best-practices`, `composition-patterns`, `react-view-transitions` |\n| Animation web | `motion`, `gsap-*` |\n| Video bằng Remotion | `remotion-*` (bắt đầu từ `remotion-best-practices`) |\n| Word, PDF, PowerPoint, Excel | `docx`, `pdf`, `pptx`, `xlsx` |\n| Viết tài liệu, proposal, spec | `doc-coauthoring` |\n| Poster, art, theme, artifact HTML | `canvas-design`, `algorithmic-art`, `theme-factory`, `web-artifacts-builder` |\n| Tạo MCP server | `mcp-builder` |\n| Tạo hoặc sửa skill | `skill-creator` |\n| Thêm/thay dependency hoặc dịch vụ | `free-only-dependencies` |\n| Bảo mật | `security-best-practices`, `security-threat-model` |\n| Soát văn bản, docs | `writing-guidelines` |\n",
+  "workflow": "# Quy trình làm việc gợi ý\n\n## Task mới\n\n1. `/plan <mô tả>` để đọc đúng phạm vi, tìm code tái dùng và ra kế hoạch ngắn.\n2. Thực hiện bằng agent `build`. Giữ thay đổi nhỏ, đúng pattern của dự án.\n3. `/check` để chạy test/lint/typecheck thật.\n4. `/review` để soát diff trước khi commit.\n5. `/commit` để tạo một commit tập trung, không push.\n\n## Codebase lớn hoặc lạ\n\nDùng skill `graphify` trước khi grep/đọc nhiều file:\n\n```bash\ngraphify query \"where is X implemented\"\ngraphify explain \"<symbol>\"\ngraphify path \"<A>\" \"<B>\"\n```\n\nChỉ đọc đúng file/line được chỉ, rồi xác minh lại trong source.\n\n## UI / frontend\n\n- Đọc `frontend-design` trước khi chọn layout, typography, palette.\n- Áp dụng `web-design-guidelines` khi review.\n- Dùng `playwright` hoặc `webapp-testing` cho hành vi thật; chụp screenshot\n  desktop/tablet/mobile trước khi kết luận đạt.\n- React/Next.js: `react-best-practices`, `composition-patterns`,\n  `react-view-transitions`.\n- Thiết kế UI/UX chuyên sâu: `ui-ux-pro-max` trước, rồi `design-system` cho\n  token và `ui-styling` cho shadcn/Tailwind.\n\n## Backend / dữ liệu\n\n- Supabase hoặc Postgres: đọc `supabase` cho sản phẩm Supabase, và\n  `supabase-postgres-best-practices` trước khi sửa schema, migration, RLS,\n  index hoặc query.\n\n## Mobile\n\n- React Native: `react-native-best-practices`, `react-navigation`; nâng cấp\n  phiên bản dùng `upgrading-react-native`.\n\n## Video / animation\n\n- Remotion: bắt đầu từ `remotion-best-practices`, sau đó load đúng skill con\n  (`remotion-create`, `remotion-captions`, `remotion-render`, ...).\n- Web animation: `motion` hoặc `gsap-*`.\n- Render là job nặng: chạy qua `limited`, kiểm tra dung lượng trước, dọn temp\n  sau khi xong.\n\n## Tài liệu\n\n- Viết/spec/proposal: `doc-coauthoring`.\n- Word/PDF/PowerPoint/Excel: `docx`, `pdf`, `pptx`, `xlsx`.\n- Poster/art/theme: `canvas-design`, `algorithmic-art`, `theme-factory`.\n- Soát văn bản: `writing-guidelines`.\n\n## Hạn mức model free\n\nOpenCode không có API/UI công bố số request còn lại của từng model free.\n`/api/experimental/usage/limits` hiện trả `null`, và các model free dùng chung\nmột hạn mức free (hết là hết cho tất cả).\n\nCách kiểm tra đúng:\n\n- Đã dùng bao nhiêu hôm nay: `opencode stats --models --days 1`\n  (cột tokens/steps theo từng model, cost `$0.00`).\n- Còn dùng được không: `~/.local/bin/opencode-free-status [model]` — chạy một\n  request thật qua `opencode run` và đọc kết quả.\n- Khi bị chặn, response có `FreeUsageLimitError` + `Retry-After`; hạn mức free\n  dùng chung reset 00:00 UTC, tức 07:00 giờ VN.\n\nSai lầm cần tránh: `curl` thẳng vào\n`https://opencode.ai/inference/openai/v1/chat/completions` với\n`Authorization: Bearer public` luôn trả 429 dù OpenCode vẫn chạy được. Đó không\nphải thước đo hạn mức.\n\nHạn mức đã công bố: LongCat 2.5 Free giới hạn 100 request/ngày; các model free\nkhác \"free for a limited time\", không nêu con số.\n\n## Dependency mới\n\nChạy `free-only-dependencies` trước khi thêm package/model/dataset/dịch vụ.\nKiểm tra license, chi phí, khả năng chạy offline và đường dùng thực tế.\n\n## Bảo mật\n\n- `security-best-practices` khi chạm upload, URL, parser, auth, secret,\n  subprocess, filesystem path.\n- `security-threat-model` khi mở trust boundary mới hoặc review kiến trúc.\n\n## Tạo skill mới\n\nDùng `skill-creator`, đặt skill trong `~/.config/opencode/skills/<id>/SKILL.md`\nhoặc `.opencode/skills/` của dự án. Chạy lại\n`~/.config/opencode/scripts/link-skills.sh` nếu muốn đồng bộ bộ skill toàn cục.\n\n## Dự án có bộ skill riêng\n\n- Game studio: mở `game-studio/Claude-Code-Game-Studios` để OpenCode nhận\n  `.claude/skills` của dự án.\n- Novel: mở đúng thư mục con có `.claude/skills`/`skills`.\n- Watch2Learn, classify-pictures: mở đúng project root; `.agents/skills` được\n  nhận tự động.\n",
+  "skillSources": "# Bộ skill toàn cục cho OpenCode\n\nCác skill trong `~/.config/opencode/skills/` được chọn lọc từ những repo đã có\ntrong `~/Documents/code`, không tải bản trùng. Hầu hết là symlink để bản gốc\nvẫn là nguồn cập nhật duy nhất.\n\n## Nguồn\n\n| Nguồn | Skill |\n| --- | --- |\n| `watch2learn/.agents/skills` | `ponytail`, `graphify`, `security-best-practices`, `security-threat-model`, `free-only-dependencies`, `playwright`, `screenshot` |\n| `20-repo-generate-video/repos/anthropics--skills` | `docx`, `pdf`, `pptx`, `xlsx`, `doc-coauthoring`, `mcp-builder`, `skill-creator`, `frontend-design`, `webapp-testing`, `web-artifacts-builder`, `canvas-design`, `algorithmic-art`, `theme-factory` |\n| `20-repo-generate-video/repos/vercel-labs--agent-skills` | `web-design-guidelines`, `react-best-practices`, `composition-patterns`, `react-view-transitions`, `writing-guidelines` |\n| `20-repo-generate-video/skills` | `motion`, `gsap-*`, `remotion-*` |\n| `agent-skill-repos/nextlevelbuilder--ui-ux-pro-max-skill` | `ui-ux-pro-max`, `design-system`, `ui-styling` |\n| `agent-skill-repos/supabase--agent-skills` | `supabase`, `supabase-postgres-best-practices` |\n| `agent-skill-repos/callstackincubator--agent-skills` | `react-native-best-practices`, `react-navigation`, `upgrading-react-native` |\n\nBa repo bổ sung cho phát triển ứng dụng được clone shallow vào\n`~/Documents/code/agent-skill-repos/`, đều license MIT.\n\nSkill lấy từ dự án cụ thể (Watch2Learn, novel, game studio) không được đưa lên\ntoàn cục để tránh nhiễu. Chúng vẫn được OpenCode nhận khi mở đúng thư mục dự án\nnhờ `.claude/skills` hoặc `.agents/skills` của dự án.\n\n## Đồng bộ lại\n\n```bash\n~/.config/opencode/scripts/link-skills.sh\n```\n\nScript idempotent: tạo lại symlink, bỏ qua nguồn thiếu và báo lỗi. Riêng\n`playwright`, `free-only-dependencies` và `ui-ux-pro-max` được copy và vá:\n`playwright` vì bản gốc hard-code `~/.codex`, `free-only-dependencies` vì mô tả\ngốc gắn với một dự án, `ui-ux-pro-max` vì bản gốc hard-code\n`${CLAUDE_PLUGIN_ROOT}` của Claude Code.\n\n## Kiểm tra\n\n```bash\nopencode api get /api/skill | python3 -c \"import sys,json; print(len(json.load(sys.stdin)['data']))\"\nopencode api get /api/command\n```\n\n## Điều kiện cần của một số skill\n\n- `graphify`: CLI `graphify` đã có tại `~/.local/bin/graphify`.\n- `playwright`: cần `npx` (đã có). Wrapper tự tải `@playwright/cli` khi chạy lần đầu.\n- `webapp-testing`: cần Python `playwright`; nếu chưa có, dùng skill `playwright`\n  hoặc skill `browser` có sẵn của OpenCode.\n- `screenshot`: dùng `gnome-screenshot` trên máy này.\n- `ui-ux-pro-max`: cần `python3` cho `scripts/search.py` (không cần package ngoài).\n- `ui-styling`: cần `npx` và mạng khi init/add shadcn; Tailwind cài trong dự án.\n- `supabase`: chỉ cần CLI/MCP khi thao tác project; phần hướng dẫn đọc offline được.\n- `docx`/`pdf`/`pptx`/`xlsx`: cần Python và các thư viện tương ứng; skill sẽ\n  hướng dẫn khi chạy.\n\n## Quy tắc toàn cục\n\n- `~/.config/opencode/AGENTS.md`: quy tắc làm việc, tài nguyên máy, git, kiểm\n  chứng và định tuyến skill.\n- `~/.config/opencode/opencode.json`: bật todo và hỏi trước các lệnh nguy hiểm\n  (`git push`, `git reset --hard`, `git clean`, `sudo`, `rm -rf`).\n- `~/.config/opencode/commands/`: `/review`, `/commit`, `/plan`, `/check`.\n"
  }
 };
