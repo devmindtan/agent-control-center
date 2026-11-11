@@ -1,6 +1,6 @@
 /* Sinh tự động bởi build.py — đừng sửa tay. */
 window.AGENT_DATA = {
- "generatedAt": "2026-11-11T21:57:59+07:00",
+ "generatedAt": "2026-11-11T22:14:14+07:00",
  "totals": {
   "skills": 61,
   "globalSkills": 54,

@@ -701,8 +701,9 @@
         <h2>Muốn thay đổi gì?</h2>
         <p class="sub">Không cần sửa file. Nhắn agent theo mẫu, agent sửa cấu hình rồi build lại trang.</p>
         <p class="note">
-          Trang chỉ đọc. Nguồn sự thật vẫn là các file trong <code>~/.config/opencode</code>;
-          sau khi sửa, chạy <code>python3 build.py</code> để cập nhật số liệu.
+          Trang chỉ đọc. Nguồn sự thật vẫn là các file trong <code>~/.config/opencode</code>.
+          Mở bằng <code>python3 serve.py</code> để mỗi lần tải trang tự quét lại;
+          bản tĩnh thì chạy <code>python3 build.py</code>.
         </p>
       </div>
       <div>
@@ -806,8 +807,8 @@
 </main>
 
 <footer>
-  <span>Read-only · dữ liệu sinh từ <code>~/.config/opencode</code></span>
-  <span>Cập nhật <span id="built-at">—</span> · <code>python3 build.py</code></span>
+  <span>Read-only · <span id="data-mode">dữ liệu</span> từ <code>~/.config/opencode</code></span>
+  <span>Cập nhật <span id="built-at">—</span> · <span id="refresh-hint">—</span></span>
 </footer>
 
 <script src="data.js"></script>
@@ -817,7 +818,11 @@
 
   const data = window.AGENT_DATA;
   if (!data) {
-    document.body.innerHTML = "<p style='padding:40px;font-family:sans-serif'>Thiếu data.js. Chạy <code>python3 build.py</code> trước.</p>";
+    const detail = window.AGENT_DATA_ERROR
+      ? "Lỗi khi quét cấu hình: " + window.AGENT_DATA_ERROR
+      : "Không tải được data.js. Chạy python3 build.py hoặc mở bằng python3 serve.py.";
+    document.body.innerHTML = "<p style='padding:40px;font-family:sans-serif'>" +
+      detail.replace(/</g, "&lt;") + "</p>";
     return;
   }
 
@@ -945,6 +950,12 @@
   });
   $("#meta-line").textContent = "Cập nhật lúc " + formatDate(data.generatedAt);
   $("#built-at").textContent = formatDate(data.generatedAt);
+
+  const isLive = location.protocol === "http:" || location.protocol === "https:";
+  $("#data-mode").textContent = isLive ? "live, quét mỗi lần tải" : "snapshot tĩnh";
+  $("#refresh-hint").innerHTML = isLive
+    ? "tự quét lại khi tải trang"
+    : "<code>python3 build.py</code> để cập nhật";
 
   const bar = $("#composition-bar");
   const legend = $("#source-legend");

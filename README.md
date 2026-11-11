@@ -1,13 +1,31 @@
 # Agent Control Center
 
-Trang web tĩnh, chỉ đọc, để xem bộ cấu hình **dùng chung cho mọi agent** của
-OpenCode: skills, workflow và quy tắc trong `~/.config/opencode`.
+Trang web chỉ đọc để xem bộ cấu hình **dùng chung cho mọi agent** của OpenCode:
+skills, workflow và quy tắc trong `~/.config/opencode`.
 
-Mở bằng trình duyệt — không cần server, không cần mạng:
+## Mở trang
+
+### Chế độ live (khuyến nghị)
 
 ```bash
+python3 serve.py
+```
+
+Server chỉ nghe `127.0.0.1:8765`, tự mở trình duyệt, và **quét lại cấu hình ở
+mỗi lần tải trang** — không cần build. Sửa skill/quy tắc xong chỉ cần nhấn F5.
+
+Cũng có thể bấm **Agent Control Center** trong app menu (launcher đã cài tại
+`~/.local/share/applications/agent-control-center.desktop`).
+
+Không muốn chạy server? Vẫn dùng được bản tĩnh:
+
+```bash
+python3 build.py        # cập nhật snapshot
 xdg-open index.html
 ```
+
+Trình duyệt không được phép đọc trực tiếp `~/.config/opencode` từ `file://`,
+nên chế độ live cần server local nhỏ này.
 
 ## Đang hiển thị gì
 
@@ -30,16 +48,13 @@ lọc theo phạm vi/nhóm, bấm để xem đường dẫn và nguồn), **Work
 `/plan → /check → /review → /commit`), **Quy tắc** (AGENTS.md, cấu hình và mục
 lục để nhảy nhanh giữa các mục).
 
-## Cập nhật số liệu
+## Cập nhật dữ liệu
 
-Trang không sửa gì. Sau khi thay đổi cấu hình, chạy lại script quét:
+- **Live:** mở bằng `serve.py`, dữ liệu được quét lại mỗi lần tải trang.
+- **Tĩnh:** chạy `python3 build.py` để ghi lại `data.js` từ cấu hình hiện tại.
 
-```bash
-python3 build.py
-```
-
-Script đọc trực tiếp các file trong `~/.config/opencode` (và gọi
-`opencode api get /api/skill` nếu server đang chạy), rồi ghi lại `data.js`.
+Cả hai đều đọc trực tiếp `~/.config/opencode` (và gọi
+`opencode api get /api/skill` nếu server đang chạy).
 
 ## Muốn agent sửa gì, cứ nhắn
 
@@ -48,21 +63,22 @@ Ví dụ:
 - “Thêm skill `foo` vào global, lấy từ `~/Documents/code/.../foo`.”
 - “Sửa mô tả skill `playwright` cho ngắn hơn.”
 - “Đổi `/plan`: luôn đọc `AGENTS.md` của dự án trước.”
-- “Gỡ skill không dùng, chạy lại `link-skills.sh` rồi build lại trang.”
+- “Gỡ skill không dùng, chạy lại `link-skills.sh`.”
 - “Thêm mục quy tắc về cách viết commit vào `AGENTS.md`.”
 
-Agent sửa file nguồn trong `~/.config/opencode`, chạy `python3 build.py`, và
-trang sẽ phản ánh thay đổi ở lần mở tiếp theo.
+Agent sửa file nguồn trong `~/.config/opencode`; ở chế độ live, tải lại trang là
+thấy thay đổi ngay.
 
 ## Cấu trúc
 
 ```
 agent-control-center/
 ├── index.html   # UI + logic hiển thị (không dependency, không CDN)
-├── data.js      # dữ liệu sinh tự động — đừng sửa tay
+├── serve.py     # server local, quét live mỗi lần tải trang
+├── data.js      # snapshot cho bản tĩnh — đừng sửa tay
 ├── build.py     # quét cấu hình, sinh data.js
 └── README.md
 ```
 
-Yêu cầu: `python3` để build, trình duyệt bất kỳ để xem. Font dùng font hệ
-thống nên chạy offline hoàn toàn.
+Yêu cầu: `python3`, trình duyệt bất kỳ. Font dùng font hệ thống nên chạy offline
+hoàn toàn; server không gửi dữ liệu ra ngoài máy.
