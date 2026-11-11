@@ -9,7 +9,8 @@ trình duyệt.
 ## Cài đặt
 
 ```bash
-git clone <URL-repo> ~/Documents/code/agent-control-center
+git clone https://github.com/devmindtan/agent-control-center.git \
+  ~/Documents/code/agent-control-center
 cd ~/Documents/code/agent-control-center
 ./install.sh
 ```
@@ -17,7 +18,8 @@ cd ~/Documents/code/agent-control-center
 Hoặc tải bản nén rồi cài:
 
 ```bash
-curl -L <URL-repo>/archive/refs/heads/main.tar.gz | tar -xz -C ~/Documents/code
+curl -L https://github.com/devmindtan/agent-control-center/archive/refs/heads/main.tar.gz \
+  | tar -xz -C ~/Documents/code
 mv ~/Documents/code/agent-control-center-main ~/Documents/code/agent-control-center
 cd ~/Documents/code/agent-control-center
 ./install.sh
@@ -27,8 +29,8 @@ cd ~/Documents/code/agent-control-center
 `~/.local/share/applications/agent-control-center.desktop`. Nó không đụng tới
 skill hay cấu hình global.
 
-> Repo này hiện là git local, chưa có remote. Thay `<URL-repo>` bằng URL của bạn
-> sau khi push (ví dụ `https://github.com/<user>/agent-control-center`).
+Repo: <https://github.com/devmindtan/agent-control-center> (public, nhánh `main`).
+Nếu dùng SSH: `git clone git@github.com:devmindtan/agent-control-center.git`.
 
 Cập nhật về sau:
 
