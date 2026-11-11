@@ -3,6 +3,10 @@
 Trang web chỉ đọc để xem bộ cấu hình **dùng chung cho mọi agent** của OpenCode:
 skills, workflow và quy tắc trong `~/.config/opencode`.
 
+Bốn tab: **Tổng quan** (số liệu, nguồn skill, tình trạng), **Skills** (tìm và lọc,
+bấm để xem đường dẫn, nguồn), **Workflow** (`/plan → /check → /review → /commit`),
+**Quy tắc** (AGENTS.md kèm mục lục).
+
 Không dependency, không CDN, không gửi dữ liệu ra ngoài. Cần `python3` và một
 trình duyệt.
 
@@ -27,7 +31,8 @@ cd ~/Documents/code/agent-control-center
 
 `install.sh` chỉ tạo launcher cho user hiện tại tại
 `~/.local/share/applications/agent-control-center.desktop`. Nó không đụng tới
-skill hay cấu hình global.
+skill hay cấu hình global: bộ skill dùng chung do
+`~/.config/opencode/scripts/link-skills.sh` quản lý và không nằm trong repo này.
 
 Repo: <https://github.com/devmindtan/agent-control-center> (public, nhánh `main`).
 Nếu dùng SSH: `git clone git@github.com:devmindtan/agent-control-center.git`.
@@ -67,54 +72,8 @@ xdg-open index.html
 ```
 
 Trình duyệt không được phép đọc trực tiếp `~/.config/opencode` từ `file://`,
-nên chế độ live cần server local nhỏ này.
-
-## Đang hiển thị gì
-
-| Mục | Số | Nguồn |
-| --- | --- | --- |
-| Skill toàn cục | 54 | `~/.config/opencode/skills/` (51 symlink + 3 bản copy) |
-| Skill built-in | 3 | `opencode`, `report`, `browser` |
-| Skill Claude synced | 4 | `~/.claude/skills/synced/` |
-| Tổng skill đăng ký | 61 | toàn cục + built-in + synced |
-| Lệnh workflow | 4 | `~/.config/opencode/commands/` |
-| Quy tắc | 1 | `~/.config/opencode/AGENTS.md` |
-| Agent / MCP riêng | 0 | — |
-
-8 skill cho phát triển ứng dụng: `ui-ux-pro-max`, `design-system`,
-`ui-styling`, `supabase`, `supabase-postgres-best-practices`,
-`react-native-best-practices`, `react-navigation`, `upgrading-react-native`.
-
-Gồm 4 tab: **Tổng quan** (số liệu, nguồn skill, tình trạng), **Skills** (tìm,
-lọc theo phạm vi/nhóm, bấm để xem đường dẫn và nguồn), **Workflow** (chuỗi
-`/plan → /check → /review → /commit`), **Quy tắc** (AGENTS.md, cấu hình và mục
-lục để nhảy nhanh giữa các mục).
-
-## Trên máy này đã cài gì
-
-| Đường dẫn | Nội dung |
-| --- | --- |
-| `~/Documents/code/agent-control-center` | repo này |
-| `~/.local/share/applications/agent-control-center.desktop` | launcher app menu (do `install.sh` tạo) |
-| `~/.config/opencode/skills/` | 54 skill toàn cục, gồm 8 skill mới |
-| `~/.config/opencode/scripts/link-skills.sh` | thêm 3 nguồn repo và bản vá `ui-ux-pro-max` |
-| `~/.config/opencode/AGENTS.md` | thêm định tuyến skill cho UI/UX, backend, mobile |
-| `~/.config/opencode/README-skills.md` | bảng nguồn và điều kiện skill |
-| `~/.config/opencode/README-workflow.md` | thêm mục Backend và Mobile |
-| `~/Documents/code/agent-skill-repos/` | 3 repo clone shallow: ui-ux-pro-max, supabase, callstack |
-
-Repo dashboard **không cài skill**. Nó chỉ đọc cấu hình đang có; muốn dựng lại bộ
-skill trên máy khác thì clone các repo nguồn rồi chạy
-`~/.config/opencode/scripts/link-skills.sh` (file này thuộc cấu hình global,
-không nằm trong repo dashboard).
-
-## Cập nhật dữ liệu
-
-- **Live:** mở bằng `serve.py`, dữ liệu được quét lại mỗi lần tải trang.
-- **Tĩnh:** chạy `python3 build.py` để ghi lại `data.js` từ cấu hình hiện tại.
-
-Cả hai đều đọc trực tiếp `~/.config/opencode` (và gọi
-`opencode api get /api/skill` nếu server đang chạy).
+nên chế độ live cần server local nhỏ này. Cả hai chế độ đều đọc trực tiếp
+`~/.config/opencode` (và gọi `opencode api get /api/skill` khi server đang chạy).
 
 ## Muốn agent sửa gì, cứ nhắn
 
@@ -138,7 +97,7 @@ agent-control-center/
 ├── build.py                    # quét cấu hình, sinh data.js cho bản tĩnh
 ├── data.js                     # snapshot cho bản tĩnh — đừng sửa tay
 ├── install.sh                  # cài/gỡ launcher
-├── agent-control-center.desktop# template launcher
+├── agent-control-center.desktop # template launcher theo @DIR@
 └── README.md
 ```
 
@@ -151,6 +110,4 @@ cd ~
 rm -rf ~/Documents/code/agent-control-center
 ```
 
-8 skill mới và 3 repo nguồn là thay đổi riêng trong `~/.config/opencode` /
-`~/Documents/code/agent-skill-repos`; chỉ xoá nếu bạn thật sự không dùng nữa,
-và nhớ chạy lại `link-skills.sh` sau khi sửa danh sách.
+Chỉ gỡ launcher và repo này; cấu hình trong `~/.config/opencode` giữ nguyên.
