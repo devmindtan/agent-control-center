@@ -1,16 +1,16 @@
 /* Sinh tự động bởi build.py — đừng sửa tay. */
 window.AGENT_DATA = {
- "generatedAt": "2026-11-11T22:14:14+07:00",
+ "generatedAt": "2026-11-12T17:31:29+07:00",
  "totals": {
-  "skills": 61,
-  "globalSkills": 54,
+  "skills": 62,
+  "globalSkills": 55,
   "builtinSkills": 3,
   "syncedSkills": 4,
   "commands": 4,
   "builtinCommands": 2,
   "agents": 0,
   "mcp": 0,
-  "sources": 9,
+  "sources": 10,
   "brokenLinks": 0
  },
  "skills": [
@@ -285,6 +285,19 @@ window.AGENT_DATA = {
    "domain": "Kỹ thuật",
    "files": 11,
    "license": "Complete terms in LICENSE.txt",
+   "scope": "global"
+  },
+  {
+   "name": "mermaid",
+   "description": "Create and render diagrams-as-code with Mermaid for system sketching and documentation (requirements, planning, architecture, components/functions, sequence, flow/state/ER/timeline). Use when an agent needs to draft or visualize how a system works before or during implementation.",
+   "path": "/home/devmindtan/.config/opencode/skills/mermaid/SKILL.md",
+   "realPath": "/home/devmindtan/.config/opencode/skills/mermaid",
+   "source": "Bản copy nội bộ",
+   "sourcePath": "/home/devmindtan/.config/opencode/skills",
+   "kind": "copy",
+   "domain": "Khác",
+   "files": 1,
+   "license": "",
    "scope": "global"
   },
   {
@@ -860,7 +873,7 @@ window.AGENT_DATA = {
  ],
  "domains": {
   "Web & UI": 9,
-  "Khác": 7,
+  "Khác": 8,
   "Thiết kế & UX": 3,
   "Tài liệu": 6,
   "Kỹ thuật": 5,
@@ -915,6 +928,11 @@ window.AGENT_DATA = {
    "name": "supabase/agent-skills",
    "path": "/home/devmindtan/Documents/code/agent-skill-repos/supabase--agent-skills",
    "count": 2
+  },
+  {
+   "name": "Bản copy nội bộ",
+   "path": "/home/devmindtan/.config/opencode/skills",
+   "count": 1
   }
  ],
  "config": {
